@@ -1,0 +1,4 @@
+sll $S2, $S2, 2
+ADD $S1, $S1, $S2
+lw  $t0, 0($S1)
+ADDi $S0, $t0, 2
