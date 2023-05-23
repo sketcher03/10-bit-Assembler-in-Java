@@ -151,6 +151,7 @@ public class Assembler {
         try (PrintWriter writer = new PrintWriter(new FileOutputStream(fileName))) {
             for (String binary : machineCode) {
                 int decimal = Integer.parseInt(binary, 2);
+                System.out.println(binary);
                 String hex = String.format("%3s", Integer.toHexString(decimal)).replaceAll(" ", "0");
                 writer.println(hex);
             }
