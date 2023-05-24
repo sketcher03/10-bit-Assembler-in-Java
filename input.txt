@@ -1,4 +1,10 @@
+IN $t0
+IN $S0
+IN $S1
+IN $S2
+OUT $S2
 sll $t0, $S2, 2
+IN $t0
 ADD $S1, $t0, $S2
 lw  $t0, 0($S1)
 ADDi $S0, $t0, 2
