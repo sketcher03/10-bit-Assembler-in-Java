@@ -95,17 +95,29 @@ public class Assembler {
             return (op + rs + rd + imm);
         }
         else if (opcode.equals("lw") || opcode.equals("sw")) {
-            String rd = String.format("%2s", Integer.toBinaryString(args[2])).replaceAll(" ", "0");
+            String rd = String.format("%2s", Integer.toBinaryString(args[0])).replaceAll(" ", "0");
             String offset = String.format("%2s", Integer.toBinaryString(args[1])).replaceAll(" ", "0");
-            String rs = String.format("%2s", Integer.toBinaryString(args[0])).replaceAll(" ", "0");
+            String rs = String.format("%2s", Integer.toBinaryString(args[2])).replaceAll(" ", "0");
 
             return (op + rs + rd + offset);
         }
-        else if (opcode.equals("J") || opcode.equals("IN") || opcode.equals("OUT"))
+        else if (opcode.equals("J"))
         {
             String target = String.format("%6s", Integer.toBinaryString(args[0])).replaceAll(" ", "0");
 
             return (op + target);
+        }
+        else if (opcode.equals("IN"))
+        {
+            String rd = String.format("%2s", Integer.toBinaryString(args[0])).replaceAll(" ", "0");
+
+            return (op + "00" + rd + "00");
+        }
+        else if (opcode.equals("OUT"))
+        {
+            String rs = String.format("%2s", Integer.toBinaryString(args[0])).replaceAll(" ", "0");
+
+            return (op + rs + "0000");
         }
         else
         {

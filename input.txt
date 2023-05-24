@@ -3,6 +3,4 @@ ADD $S1, $t0, $S2
 lw  $t0, 0($S1)
 ADDi $S0, $t0, 2
 slti $t0, $S1, 3
-IN $S1
-OUT $S2
 Beq $S0, $S1, 2
