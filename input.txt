@@ -1,12 +1,8 @@
-IN $t0
 IN $S0
-IN $S1
-IN $S2
+lw $S1, 1($S0)
+OUT $S1
+lw $S2, 2($S0)
 OUT $S2
-sll $t0, $S2, 2
-IN $t0
-ADD $S1, $t0, $S2
-lw  $t0, 0($S1)
-ADDi $S0, $t0, 2
-slti $t0, $S1, 3
-Beq $S0, $S1, 2
+ADD $t0, $S1, $S2
+OUT $t0
+sw $t0, 3($S0)
